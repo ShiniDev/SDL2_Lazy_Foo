@@ -1,0 +1,3 @@
+/home/marklaurente/Documents/Programming/C++/GitHubRepositories/SDL2_Lazy_Foo/1_Hello_SDL/build/CMakeFiles/rebuild_cache.dir
+/home/marklaurente/Documents/Programming/C++/GitHubRepositories/SDL2_Lazy_Foo/1_Hello_SDL/build/CMakeFiles/edit_cache.dir
+/home/marklaurente/Documents/Programming/C++/GitHubRepositories/SDL2_Lazy_Foo/1_Hello_SDL/build/CMakeFiles/main.dir
