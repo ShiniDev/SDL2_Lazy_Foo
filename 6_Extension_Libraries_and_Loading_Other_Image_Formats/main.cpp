@@ -1,4 +1,4 @@
-#include "MySdlFunctions.hpp"
+#include "../MySdlFunctions.hpp"
 
 const int SCREEN_WIDTH = 1024;
 const int SCREEN_HEIGHT = 768;
@@ -7,7 +7,7 @@ int main(int argc, char* args[]){
     SDL_Window* win = nullptr;
     SDL_Surface* win_surface = nullptr;
     SDL_Surface* img_surface = nullptr;
-    if(!init(win,win_surface,SCREEN_WIDTH,SCREEN_HEIGHT)){
+    if(!init(win,win_surface,SCREEN_WIDTH,SCREEN_HEIGHT,"Extension Libraries and Loading Other Image Formats")){
         std::cerr << "SDL could not be initialized! SDL Error: " << SDL_GetError() << '\n';
     }else{
         img_surface = optimize_load_surface(win_surface,"1.jpg",ImageType::OTHER_IMG_FILE);

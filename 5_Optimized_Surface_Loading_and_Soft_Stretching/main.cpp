@@ -1,6 +1,6 @@
 #include <iostream>
 #include <SDL2/SDL.h>
-#include "MySdlFunctions.hpp"
+#include "../MySdlFunctions.hpp"
 
 const int SCREEN_WIDTH = 1024;
 const int SCREEN_HEIGHT = 768;
@@ -9,10 +9,10 @@ int main(int argc,char* args[]){
     SDL_Window* win = nullptr;
     SDL_Surface* screen_surface = nullptr;
     SDL_Surface* image_surface = nullptr;
-    if(!init(win,screen_surface,SCREEN_WIDTH,SCREEN_HEIGHT)){
+    if(!init(win,screen_surface,SCREEN_WIDTH,SCREEN_HEIGHT,"Surface Loading and Soft Stretching")){
         std::cerr << "SDL failed to initialize!\n";
     }else{
-        image_surface = optimize_load_surface("stretch.bmp",screen_surface);
+        image_surface = optimize_load_surface(screen_surface,"stretch.bmp",ImageType::BMP_FILE);
         if(!image_surface){
             std::cerr << "Image failed to load!\n";
         }else {

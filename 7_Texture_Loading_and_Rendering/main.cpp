@@ -1,4 +1,4 @@
-#include "MySdlFunctions.hpp"
+#include "../MySdlFunctions.hpp"
 
 const int SCREEN_WIDTH = 1024;
 const int SCREEN_HEIGHT = 768;
@@ -7,7 +7,7 @@ int main(int argc,char* args[]){
     SDL_Window* win = nullptr;
     SDL_Renderer* rend = nullptr;
     SDL_Texture* text = nullptr;
-    if(!init(win,rend,SCREEN_WIDTH,SCREEN_HEIGHT)){
+    if(!init(win,rend,SCREEN_WIDTH,SCREEN_HEIGHT,"Texture Loading and Rendering")){
         std::cerr << "Failed to initialize!\n";
     }else{
         text = load_texture(rend,"5.jpg",ImageType::OTHER_IMG_FILE);

@@ -25,8 +25,8 @@ inline SDL_Texture* load_texture(SDL_Renderer*&,const std::string&,ImageType);
 inline SDL_Surface* load_surface(const std::string&,ImageType);
 inline SDL_Surface* optimize_load_surface(SDL_Surface*&,const std::string&,ImageType);
 
-inline bool init(SDL_Window*&,SDL_Surface*&,int,int);	//Initializes SDL Window with SDL_Surface
-inline bool init(SDL_Window*&,SDL_Renderer*&,int,int);	//Initializes SDL Window with SDL_Renderer
+inline bool init(SDL_Window*&,SDL_Surface*&,int,int,const std::string&);	//Initializes SDL Window with SDL_Surface
+inline bool init(SDL_Window*&,SDL_Renderer*&,int,int,const std::string&);	//Initializes SDL Window with SDL_Renderer
 inline bool load_media(SDL_Surface*&,const std::string&,ImageType);
 inline bool init_key_surface(SDL_Surface*[]);
 
@@ -77,12 +77,12 @@ inline SDL_Surface* optimize_load_surface(SDL_Surface*& screen_surface,const std
     return optimized_surface;
 }
 
-inline bool init(SDL_Window *&win,SDL_Surface *&surf,int SCREEN_WIDTH,int SCREEN_HEIGHT){
+inline bool init(SDL_Window *&win,SDL_Surface *&surf,int SCREEN_WIDTH,int SCREEN_HEIGHT,const std::string& WIN_NAME){
     if(SDL_Init(SDL_INIT_VIDEO)<0){
         std::cerr << "SDL could not be initialized! SDL Error: " << SDL_GetError() << '\n';
         return false;
     }
-    win = SDL_CreateWindow("SDL Tutorial",SDL_WINDOWPOS_UNDEFINED,SDL_WINDOWPOS_UNDEFINED,SCREEN_WIDTH,SCREEN_HEIGHT,SDL_WINDOW_SHOWN);
+    win = SDL_CreateWindow(WIN_NAME.c_str(),SDL_WINDOWPOS_UNDEFINED,SDL_WINDOWPOS_UNDEFINED,SCREEN_WIDTH,SCREEN_HEIGHT,SDL_WINDOW_SHOWN);
     if(!win){
         std::cerr << "Window could not be created! SDL Error: " << SDL_GetError() << '\n';
         return false;
@@ -96,12 +96,12 @@ inline bool init(SDL_Window *&win,SDL_Surface *&surf,int SCREEN_WIDTH,int SCREEN
     return true;
 }
 
-inline bool init(SDL_Window *&win,SDL_Renderer *&rend,int SCREEN_WIDTH,int SCREEN_HEIGHT){
+inline bool init(SDL_Window *&win,SDL_Renderer *&rend,int SCREEN_WIDTH,int SCREEN_HEIGHT,const std::string& WIN_NAME){
     if(SDL_Init(SDL_INIT_VIDEO)<0){
         std::cerr << "SDL could not be initialized! SDL Error: " << SDL_GetError() << '\n';
         return false;
     }
-    win = SDL_CreateWindow("SDL Tutorial",SDL_WINDOWPOS_UNDEFINED,SDL_WINDOWPOS_UNDEFINED,SCREEN_WIDTH,SCREEN_HEIGHT,SDL_WINDOW_SHOWN);
+    win = SDL_CreateWindow(WIN_NAME.c_str(),SDL_WINDOWPOS_UNDEFINED,SDL_WINDOWPOS_UNDEFINED,SCREEN_WIDTH,SCREEN_HEIGHT,SDL_WINDOW_SHOWN);
     if(!win){
         std::cerr << "Window could not be created! SDL Error: " << SDL_GetError() << '\n';
         return false;

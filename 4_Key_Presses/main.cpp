@@ -1,6 +1,6 @@
 #include <iostream>
 #include <SDL2/SDL.h>
-#include "MySdlFunctions.hpp"
+#include "../MySdlFunctions.hpp"
 
 const int SCREEN_WIDTH = 1024;
 const int SCREEN_HEIGHT = 768;
@@ -10,10 +10,10 @@ int main(int argc,char* args[]){
     SDL_Surface* screen_surface = nullptr;
     SDL_Surface* current_key_surface = nullptr;
     SDL_Surface* key_surface[KEY_PRESS_SURFACE_TOTAL];
-    if(!init(win,screen_surface,SCREEN_WIDTH,SCREEN_HEIGHT)){
+    if(!init(win,screen_surface,SCREEN_WIDTH,SCREEN_HEIGHT,"Key Presses")){
         std::cerr << "Failed to initialize SDL!\n";
-    }else{
-        if(!load_media(key_surface)){
+    }else
+        if(!init_key_surface(key_surface)){
             std::cerr << "Failed to load key images!\n";
         }else{
             bool running = true;
