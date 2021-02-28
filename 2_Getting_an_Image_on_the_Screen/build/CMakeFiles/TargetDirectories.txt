@@ -1,3 +1,0 @@
-/home/marklaurente/Documents/Programming/C++/GitHubRepositories/SDL2_Lazy_Foo/2_Getting_an_Image_on_the_Screen/build/CMakeFiles/rebuild_cache.dir
-/home/marklaurente/Documents/Programming/C++/GitHubRepositories/SDL2_Lazy_Foo/2_Getting_an_Image_on_the_Screen/build/CMakeFiles/edit_cache.dir
-/home/marklaurente/Documents/Programming/C++/GitHubRepositories/SDL2_Lazy_Foo/2_Getting_an_Image_on_the_Screen/build/CMakeFiles/main.dir
