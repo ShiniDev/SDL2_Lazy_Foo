@@ -1,11 +1,13 @@
 #ifndef MYSDLFUNCTIONS_HPP
 #define MYSDLFUNCTIONS_HPP
+
 #include <iostream>
 #include <vector>
 #include <string>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 
+//To be used in storing surface or texture that are changeable through the following keys
 enum KeyPressSurfaces{
     KEY_PRESS_SURFACE_DEFAULT,
     KEY_PRESS_SURFACE_UP,
@@ -15,26 +17,47 @@ enum KeyPressSurfaces{
     KEY_PRESS_SURFACE_TOTAL
 };
 
+//Imagetype options
 enum ImageType{
     BMP_FILE,
     OTHER_IMG_FILE
 };
 
 //Declaration of Functions
+
+//Returns an initialized texture from a path
 inline SDL_Texture* load_texture(SDL_Renderer*&,const std::string&,ImageType);
 
+//Returns an initialized surface from a path
 inline SDL_Surface* load_surface(const std::string&,ImageType);
+
+//Returns an initialized surface from a path in a more optimized way
 inline SDL_Surface* optimize_load_surface(SDL_Surface*&,const std::string&,ImageType);
 
-inline bool init(SDL_Window*&,SDL_Surface*&,int,int,const std::string&);	//Initializes SDL Window with SDL_Surface
-inline bool init(SDL_Window*&,SDL_Renderer*&,int,int,const std::string&);	//Initializes SDL Window with SDL_Renderer
+//Initializes SDL Window and Surface
+inline bool init(SDL_Window*&,SDL_Surface*&,int,int,const std::string&);
+
+//Initializes SDL Window and Renderer
+inline bool init(SDL_Window*&,SDL_Renderer*&,int,int,const std::string&);
+
+//Attaches the imagefile from filepath to the SDL Surface argument
 inline bool load_media(SDL_Surface*&,const std::string&,ImageType);
+
+//It was used to initialize SDL Surface array on Lesson 04
 inline bool init_key_surface(SDL_Surface*[]);
 
+//Reads a sprite sheet frame by frame to the vector of SDL Rect with the help of the int arguments
 inline void load_sprite_sheet(std::vector<SDL_Rect>&,int,int,int,int);
+
+//Destroys the SDL Window and Surface parameter, and calls SDL_Quit() and IMG_Quit()
 inline void close(SDL_Window*&,SDL_Surface*&);
+
+//Destroys the SDL Window and Renderer parameter, and calls SDL_Quit() and IMG_Quit()
 inline void close(SDL_Window*&,SDL_Renderer*&);
+
+//Destroys the SDL Window,Texture,and Renderer parameter, and calls SDL_Quit() and IMG_Quit()
 inline void close(SDL_Window*&,SDL_Texture*&,SDL_Renderer*&);
+
 //--End
 
 inline SDL_Texture* load_texture(SDL_Renderer *&rend,const std::string& filepath, ImageType t){

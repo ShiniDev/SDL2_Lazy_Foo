@@ -27,6 +27,28 @@ bool LTexture::load_from_file_trans(SDL_Renderer*& rend,const std::string &filep
     return true;
 }
 
+bool LTexture::load_from_file(SDL_Renderer *&rend, const std::string &filepath){
+    free();
+    SDL_Surface* loaded_surface = IMG_Load(filepath.c_str());
+    if(!loaded_surface){
+        std::cerr << "Unable to load image " << filepath << "! SDL Error: " << SDL_GetError() << '\n';
+        return false;
+    }
+    texture = SDL_CreateTextureFromSurface(rend,loaded_surface);
+    if(!texture){
+        std::cerr << "Unable to create texture from " << filepath << "! SDL Error: " << SDL_GetError() << '\n';
+        return false;
+    }
+    imgwidth = loaded_surface->w;
+    imgheight = loaded_surface->h;
+    SDL_FreeSurface(loaded_surface);
+    return true;
+}
+
+void LTexture::set_color(Uint8 r, Uint8 g, Uint8 b){
+    SDL_SetTextureColorMod(texture,r,g,b);
+}
+
 void LTexture::free(){
     if(texture){
         SDL_DestroyTexture(texture);
