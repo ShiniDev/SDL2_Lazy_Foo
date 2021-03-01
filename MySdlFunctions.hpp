@@ -1,6 +1,7 @@
 #ifndef MYSDLFUNCTIONS_HPP
 #define MYSDLFUNCTIONS_HPP
 #include <iostream>
+#include <vector>
 #include <string>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
@@ -30,6 +31,7 @@ inline bool init(SDL_Window*&,SDL_Renderer*&,int,int,const std::string&);	//Init
 inline bool load_media(SDL_Surface*&,const std::string&,ImageType);
 inline bool init_key_surface(SDL_Surface*[]);
 
+inline void load_sprite_sheet(std::vector<SDL_Rect>&,int,int,int,int);
 inline void close(SDL_Window*&,SDL_Surface*&);
 inline void close(SDL_Window*&,SDL_Renderer*&);
 inline void close(SDL_Window*&,SDL_Texture*&,SDL_Renderer*&);
@@ -160,6 +162,16 @@ inline bool init_key_surface(SDL_Surface *surf[]){
         std::cerr << "Failed to load right image!\n";
     }
     return success;
+}
+
+inline void load_sprite_sheet(std::vector<SDL_Rect>& r,int framewidth,int frameheight,int imagewidth,int imageheight){
+    for(int i = 0,x = 0, y = 0; y < imageheight; x+=framewidth,i++){
+        r.push_back(SDL_Rect{x,y,framewidth,frameheight});
+        if(x+framewidth>=imagewidth){
+            x = -framewidth;
+            y+=frameheight;
+        }
+    }
 }
 
 inline void close(SDL_Window *&win,SDL_Surface *&surf){

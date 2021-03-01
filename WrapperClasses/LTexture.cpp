@@ -36,9 +36,13 @@ void LTexture::free(){
     }
 }
 
-void LTexture::render(SDL_Renderer *& rend, int x, int y){
+void LTexture::render(SDL_Renderer *& rend, int x, int y,SDL_Rect* clip){
     SDL_Rect img_properties = {x,y,imgwidth,imgheight};
-    SDL_RenderCopy(rend,texture,nullptr,&img_properties);
+    if(clip){
+        img_properties.w = clip->w;
+        img_properties.h = clip->h;
+    }
+    SDL_RenderCopy(rend,texture,clip,&img_properties);
 }
 
 int LTexture::get_width(){return imgwidth;}

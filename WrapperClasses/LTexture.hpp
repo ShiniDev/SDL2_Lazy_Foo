@@ -15,7 +15,7 @@ class LTexture{
         //Deallocates memory
         void free();
         //Renders the texture class variable to the SDL_Renderer argument
-        void render(SDL_Renderer*&,int,int);
+        void render(SDL_Renderer*&,int,int,SDL_Rect* clip = nullptr);
 
         //Returns image width
         int get_width();
