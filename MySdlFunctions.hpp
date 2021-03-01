@@ -31,6 +31,7 @@ inline bool load_media(SDL_Surface*&,const std::string&,ImageType);
 inline bool init_key_surface(SDL_Surface*[]);
 
 inline void close(SDL_Window*&,SDL_Surface*&);
+inline void close(SDL_Window*&,SDL_Renderer*&);
 inline void close(SDL_Window*&,SDL_Texture*&,SDL_Renderer*&);
 //--End
 
@@ -166,6 +167,15 @@ inline void close(SDL_Window *&win,SDL_Surface *&surf){
     surf = nullptr;
     SDL_DestroyWindow(win);
     win = nullptr;
+    SDL_Quit();
+}
+
+inline void close(SDL_Window *&win, SDL_Renderer *&rend){
+    SDL_DestroyRenderer(rend);
+    SDL_DestroyWindow(win);
+    win = nullptr;
+    rend = nullptr;
+    IMG_Quit();
     SDL_Quit();
 }
 
