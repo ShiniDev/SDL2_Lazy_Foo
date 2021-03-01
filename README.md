@@ -1,4 +1,4 @@
-# SDL2_Lazy_Foo
+# SDL2_Lazy_Foo_Tutorials
 This repository contains my codes on how I followed the tutorial from lazyfoo.net  
 This repository does not aim to be a tutorial nor plagiarized from LazyFoo  
 This repository is only for tracking my learning progress, regarding SDL2.  
