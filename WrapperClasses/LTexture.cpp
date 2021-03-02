@@ -66,13 +66,13 @@ void LTexture::set_blend_mode(SDL_BlendMode blending){
     SDL_SetTextureBlendMode(texture,blending);
 }
 
-void LTexture::render(SDL_Renderer *& rend, int x, int y,SDL_Rect* clip){
+void LTexture::render(SDL_Renderer *& rend, int x, int y, SDL_Rect *clip, double angle, SDL_Point *center, SDL_RendererFlip flip){
     SDL_Rect img_properties = {x,y,imgwidth,imgheight};
     if(clip){
         img_properties.w = clip->w;
         img_properties.h = clip->h;
     }
-    SDL_RenderCopy(rend,texture,clip,&img_properties);
+    SDL_RenderCopyEx(rend,texture,clip,&img_properties,angle,center,flip);
 }
 
 int LTexture::get_width(){return imgwidth;}

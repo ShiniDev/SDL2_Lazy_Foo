@@ -28,7 +28,7 @@ class LTexture{
         void set_blend_mode(SDL_BlendMode blending);
 
         //Renders the texture class variable to the SDL_Renderer argument
-        void render(SDL_Renderer*&,int,int,SDL_Rect* clip = nullptr);
+        void render(SDL_Renderer*&,int,int,SDL_Rect* clip = nullptr, double angle = 0.0, SDL_Point* center = nullptr, SDL_RendererFlip flip = SDL_FLIP_NONE);
 
         //Returns image width
         int get_width();
