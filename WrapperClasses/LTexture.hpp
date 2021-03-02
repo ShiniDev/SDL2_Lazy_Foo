@@ -21,6 +21,12 @@ class LTexture{
         //Sets the color of texture class variable
         void set_color(Uint8 r, Uint8 g, Uint8 b);
 
+        //Sets the alpha of texture class variable
+        void set_alpha(Uint8 alpha);
+
+        //Set blending
+        void set_blend_mode(SDL_BlendMode blending);
+
         //Renders the texture class variable to the SDL_Renderer argument
         void render(SDL_Renderer*&,int,int,SDL_Rect* clip = nullptr);
 

@@ -45,10 +45,6 @@ bool LTexture::load_from_file(SDL_Renderer *&rend, const std::string &filepath){
     return true;
 }
 
-void LTexture::set_color(Uint8 r, Uint8 g, Uint8 b){
-    SDL_SetTextureColorMod(texture,r,g,b);
-}
-
 void LTexture::free(){
     if(texture){
         SDL_DestroyTexture(texture);
@@ -56,6 +52,18 @@ void LTexture::free(){
         imgwidth = 0;
         imgheight = 0;
     }
+}
+
+void LTexture::set_color(Uint8 r, Uint8 g, Uint8 b){
+    SDL_SetTextureColorMod(texture,r,g,b);
+}
+
+void LTexture::set_alpha(Uint8 alpha){
+    SDL_SetTextureAlphaMod(texture,alpha);
+}
+
+void LTexture::set_blend_mode(SDL_BlendMode blending){
+    SDL_SetTextureBlendMode(texture,blending);
 }
 
 void LTexture::render(SDL_Renderer *& rend, int x, int y,SDL_Rect* clip){
