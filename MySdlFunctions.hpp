@@ -132,7 +132,7 @@ inline bool init(SDL_Window *&win,SDL_Renderer *&rend,int SCREEN_WIDTH,int SCREE
         std::cerr << "Window could not be created! SDL Error: " << SDL_GetError() << '\n';
         return false;
     }
-    rend = SDL_CreateRenderer(win,-1,SDL_RENDERER_ACCELERATED);
+    rend = SDL_CreateRenderer(win,-1,SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
     if(!rend){
         std::cerr << "Rendered could not be created! SDL Error: " << SDL_GetError() << '\n';
         return false;
