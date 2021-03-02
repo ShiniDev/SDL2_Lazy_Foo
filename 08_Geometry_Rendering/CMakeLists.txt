@@ -8,12 +8,11 @@ INCLUDE(FindPkgConfig)
 
 PKG_SEARCH_MODULE(SDL2 REQUIRED sdl2)
 PKG_SEARCH_MODULE(SDL2IMAGE REQUIRED SDL2_image)
-
-include_directories(${SDL2_INCLUDE_DIRS} ${SDL2IMAGE_INCLUDE_DIRS})
-
+PKG_SEARCH_MODULE(SDL2TTF REQUIRED SDL2_ttf)
+include_directories(${SDL2_INCLUDE_DIRS} ${SDL2IMAGE_INCLUDE_DIRS} ${SDL2TTF_INCLUDE_DIRS})
 add_executable(
     main
     main.cpp
+    ../WrapperClasses/LTexture.cpp
     )
-
-target_link_libraries(main ${SDL2_LIBRARIES} ${SDL2IMAGE_LIBRARIES})
+target_link_libraries(main ${SDL2_LIBRARIES} ${SDL2IMAGE_LIBRARIES} ${SDL2TTF_LIBRARIES})

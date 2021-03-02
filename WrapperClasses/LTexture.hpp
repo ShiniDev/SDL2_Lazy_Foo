@@ -15,6 +15,9 @@ class LTexture{
         //Initializes texture class variable from a filepath
         bool load_from_file(SDL_Renderer*&,const std::string&);
 
+        //Initializes texture class variable with a text texture
+        bool load_from_rendered_text(SDL_Renderer*&,TTF_Font*&,const std::string&,SDL_Color);
+
         //Deallocates memory
         void free();
 

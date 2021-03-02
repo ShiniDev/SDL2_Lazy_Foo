@@ -6,6 +6,7 @@
 #include <string>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h>
 
 //To be used in storing surface or texture that are changeable through the following keys
 enum KeyPressSurfaces{
@@ -54,6 +55,9 @@ inline void close(SDL_Window*&,SDL_Surface*&);
 
 //Destroys the SDL Window and Renderer parameter, and calls SDL_Quit() and IMG_Quit()
 inline void close(SDL_Window*&,SDL_Renderer*&);
+
+//Destroys the SDL Window, Renderer and TTF_font parameter, and calls SDL_Quit(),IMG_Quit() and TTF_Quit()
+inline void close(SDL_Window*&,SDL_Renderer*&,TTF_Font*&);
 
 //Destroys the SDL Window,Texture,and Renderer parameter, and calls SDL_Quit() and IMG_Quit()
 inline void close(SDL_Window*&,SDL_Texture*&,SDL_Renderer*&);
@@ -118,6 +122,10 @@ inline bool init(SDL_Window *&win,SDL_Surface *&surf,int SCREEN_WIDTH,int SCREEN
         std::cerr << "PNG SDL Image could not be initialize! SDL Error: " << SDL_GetError() << '\n';
         return false;
     }
+    if(TTF_Init() == -1){
+        std::cerr << "SDL TTF could not be initialize! SDL_ttf Error: " << TTF_GetError() << '\n';
+        return false;
+    }
     surf = SDL_GetWindowSurface(win);
     return true;
 }
@@ -141,6 +149,10 @@ inline bool init(SDL_Window *&win,SDL_Renderer *&rend,int SCREEN_WIDTH,int SCREE
     int img_flags = IMG_INIT_PNG;
     if(!(IMG_Init(img_flags) & img_flags)){
         std::cerr << "PNG SDL Image could not be initialize! SDL Error: " << SDL_GetError() << '\n';
+        return false;
+    }
+    if(TTF_Init() == -1){
+        std::cerr << "SDL TTF could not be initialize! SDL_ttf Error: " << TTF_GetError() << '\n';
         return false;
     }
     return true;
@@ -211,6 +223,19 @@ inline void close(SDL_Window *&win, SDL_Renderer *&rend){
     win = nullptr;
     rend = nullptr;
     IMG_Quit();
+    SDL_Quit();
+}
+
+inline void close(SDL_Window *&window, SDL_Renderer *&renderer,TTF_Font *&font){
+    TTF_CloseFont(font);
+    font = nullptr;
+    SDL_DestroyRenderer(renderer);
+    SDL_DestroyWindow(window);
+    window = nullptr;
+    renderer = nullptr;
+
+    IMG_Quit();
+    TTF_Quit();
     SDL_Quit();
 }
 

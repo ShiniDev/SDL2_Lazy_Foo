@@ -45,6 +45,24 @@ bool LTexture::load_from_file(SDL_Renderer *&rend, const std::string &filepath){
     return true;
 }
 
+bool LTexture::load_from_rendered_text(SDL_Renderer*& renderer,TTF_Font *&font, const std::string &text, SDL_Color color){
+    free();
+    SDL_Surface* text_surface = TTF_RenderText_Solid(font,text.c_str(),color);
+    if(!text_surface){
+        std::cerr << "Unable to render text surface! SDL_ttf Error: " << TTF_GetError() << '\n';
+        return false;
+    }
+    texture = SDL_CreateTextureFromSurface(renderer,text_surface);
+    if(!texture){
+        std::cerr << "Unable to create texture from rendered text! SDL Error : " << SDL_GetError() << '\n';
+        return false;
+    }
+    imgwidth = text_surface->w;
+    imgheight = text_surface->h;
+    SDL_FreeSurface(text_surface);
+    return texture!=nullptr;
+}
+
 void LTexture::free(){
     if(texture){
         SDL_DestroyTexture(texture);
