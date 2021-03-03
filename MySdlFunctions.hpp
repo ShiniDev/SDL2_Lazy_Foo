@@ -9,19 +9,21 @@
 #include <SDL2/SDL_ttf.h>
 
 //To be used in storing surface or texture that are changeable through the following keys
-enum KeyPressSurfaces{
-    KEY_PRESS_SURFACE_DEFAULT,
-    KEY_PRESS_SURFACE_UP,
-    KEY_PRESS_SURFACE_DOWN,
-    KEY_PRESS_SURFACE_LEFT,
-    KEY_PRESS_SURFACE_RIGHT,
-    KEY_PRESS_SURFACE_TOTAL
+enum KeyPressSurfaces
+{
+    Key_Press_Surface_Default,
+    Key_Press_Surface_Up,
+    Key_Press_Surface_Down,
+    Key_Press_Surface_Left,
+    Key_Press_Surface_Right,
+    Key_Press_Surface_Total
 };
 
 //Imagetype options
-enum ImageType{
-    BMP_FILE,
-    OTHER_IMG_FILE
+enum ImageType
+{
+    Bmp_File,
+    Other_Img_File
 };
 
 //Declaration of Functions
@@ -64,17 +66,26 @@ inline void close(SDL_Window*&,SDL_Texture*&,SDL_Renderer*&);
 
 //--End
 
-inline SDL_Texture* load_texture(SDL_Renderer *&rend,const std::string& filepath, ImageType t){
+inline SDL_Texture* load_texture(SDL_Renderer *&rend,const std::string& filepath, ImageType t)
+{
     SDL_Texture* text = nullptr;
     SDL_Surface* img_surface = nullptr;
-    if(t==ImageType::BMP_FILE)img_surface = SDL_LoadBMP(filepath.c_str());
-    else img_surface = IMG_Load(filepath.c_str());
-    if(!img_surface){
+    if(t==ImageType::Bmp_File)
+    {
+        img_surface = SDL_LoadBMP(filepath.c_str());
+    }
+    else
+    {
+        img_surface = IMG_Load(filepath.c_str());
+    }
+    if(!img_surface)
+    {
         std::cerr << "Unable to load image " << filepath << "! SDL Error: " << SDL_GetError() << '\n';
         return text;
     }
     text = SDL_CreateTextureFromSurface(rend,img_surface);
-    if(!text){
+    if(!text)
+    {
         std::cerr << "Unable to create texture from " << filepath << "! SDL Error: " << SDL_GetError() << '\n';
         return text;
     }
@@ -82,22 +93,32 @@ inline SDL_Texture* load_texture(SDL_Renderer *&rend,const std::string& filepath
     return text;
 }
 
-inline SDL_Surface* load_surface(const std::string& filepath,ImageType t){
+inline SDL_Surface* load_surface(const std::string& filepath,ImageType t)
+{
     SDL_Surface* surf = nullptr;
-    if(t==BMP_FILE)surf = SDL_LoadBMP(filepath.c_str());
+    if(t==Bmp_File)surf = SDL_LoadBMP(filepath.c_str());
     else surf =IMG_Load(filepath.c_str());
-    if(!surf){
+    if(!surf)
+    {
         std::cerr << "Unable to load image " << filepath << "! SDL Error: " << SDL_GetError() << '\n';
     }
     return surf;
 }
 
-inline SDL_Surface* optimize_load_surface(SDL_Surface*& screen_surface,const std::string& filepath,ImageType t){
+inline SDL_Surface* optimize_load_surface(SDL_Surface*& screen_surface,const std::string& filepath,ImageType t)
+{
     SDL_Surface* optimized_surface = nullptr;
     SDL_Surface* surface = nullptr;
-    if(t==BMP_FILE)surface = SDL_LoadBMP(filepath.c_str());
-    else surface = IMG_Load(filepath.c_str());
-    if(!surface){
+    if(t==Bmp_File)
+    {
+        surface = SDL_LoadBMP(filepath.c_str());
+    }
+    else
+    {
+        surface = IMG_Load(filepath.c_str());
+    }
+    if(!surface)
+    {
         std::cerr << "Unable to load image " << filepath << "! SDL Error: " << SDL_GetError() << '\n';
         return surface;
     }
@@ -107,22 +128,27 @@ inline SDL_Surface* optimize_load_surface(SDL_Surface*& screen_surface,const std
     return optimized_surface;
 }
 
-inline bool init(SDL_Window *&win,SDL_Surface *&surf,int SCREEN_WIDTH,int SCREEN_HEIGHT,const std::string& WIN_NAME){
-    if(SDL_Init(SDL_INIT_VIDEO)<0){
+inline bool init(SDL_Window *&win,SDL_Surface *&surf,int SCREEN_WIDTH,int SCREEN_HEIGHT,const std::string& WIN_NAME)
+{
+    if(SDL_Init(SDL_INIT_VIDEO)<0)
+    {
         std::cerr << "SDL could not be initialized! SDL Error: " << SDL_GetError() << '\n';
         return false;
     }
     win = SDL_CreateWindow(WIN_NAME.c_str(),SDL_WINDOWPOS_UNDEFINED,SDL_WINDOWPOS_UNDEFINED,SCREEN_WIDTH,SCREEN_HEIGHT,SDL_WINDOW_SHOWN);
-    if(!win){
+    if(!win)
+    {
         std::cerr << "Window could not be created! SDL Error: " << SDL_GetError() << '\n';
         return false;
     }
     int img_flags = IMG_INIT_PNG;
-    if(!(IMG_Init(img_flags) & img_flags)){
+    if(!(IMG_Init(img_flags) & img_flags))
+    {
         std::cerr << "PNG SDL Image could not be initialize! SDL Error: " << SDL_GetError() << '\n';
         return false;
     }
-    if(TTF_Init() == -1){
+    if(TTF_Init() == -1)
+    {
         std::cerr << "SDL TTF could not be initialize! SDL_ttf Error: " << TTF_GetError() << '\n';
         return false;
     }
@@ -130,86 +156,110 @@ inline bool init(SDL_Window *&win,SDL_Surface *&surf,int SCREEN_WIDTH,int SCREEN
     return true;
 }
 
-inline bool init(SDL_Window *&win,SDL_Renderer *&rend,int SCREEN_WIDTH,int SCREEN_HEIGHT,const std::string& WIN_NAME){
-    if(SDL_Init(SDL_INIT_VIDEO)<0){
+inline bool init(SDL_Window *&win,SDL_Renderer *&rend,int SCREEN_WIDTH,int SCREEN_HEIGHT,const std::string& WIN_NAME)
+{
+    if(SDL_Init(SDL_INIT_VIDEO)<0)
+    {
         std::cerr << "SDL could not be initialized! SDL Error: " << SDL_GetError() << '\n';
         return false;
     }
     win = SDL_CreateWindow(WIN_NAME.c_str(),SDL_WINDOWPOS_UNDEFINED,SDL_WINDOWPOS_UNDEFINED,SCREEN_WIDTH,SCREEN_HEIGHT,SDL_WINDOW_SHOWN);
-    if(!win){
+    if(!win)
+    {
         std::cerr << "Window could not be created! SDL Error: " << SDL_GetError() << '\n';
         return false;
     }
     rend = SDL_CreateRenderer(win,-1,SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
-    if(!rend){
+    if(!rend)
+    {
         std::cerr << "Rendered could not be created! SDL Error: " << SDL_GetError() << '\n';
         return false;
     }
     SDL_SetRenderDrawColor(rend,0xFf,0xFF,0xFF,0xFF);
     int img_flags = IMG_INIT_PNG;
-    if(!(IMG_Init(img_flags) & img_flags)){
+    if(!(IMG_Init(img_flags) & img_flags))
+    {
         std::cerr << "PNG SDL Image could not be initialize! SDL Error: " << SDL_GetError() << '\n';
         return false;
     }
-    if(TTF_Init() == -1){
+    if(TTF_Init() == -1)
+    {
         std::cerr << "SDL TTF could not be initialize! SDL_ttf Error: " << TTF_GetError() << '\n';
         return false;
     }
     return true;
 }
 
-inline bool load_media(SDL_Surface *&surf,const std::string& filepath,ImageType t){
-    if(t==BMP_FILE)surf = SDL_LoadBMP(filepath.c_str());
-    else surf = IMG_Load(filepath.c_str());
-    if(!surf){
+inline bool load_media(SDL_Surface *&surf,const std::string& filepath,ImageType t)
+{
+    if(t==Bmp_File)
+    {
+        surf = SDL_LoadBMP(filepath.c_str());
+    }
+    else
+    {
+        surf = IMG_Load(filepath.c_str());
+    }
+    if(!surf)
+    {
         std::cerr << "Unable to load image " << filepath << "! SDL Error: " << SDL_GetError() << '\n';
         return false;
     }
     return true;
 }
 
-inline bool init_key_surface(SDL_Surface *surf[]){
+inline bool init_key_surface(SDL_Surface* surf[])
+{
     bool success = true;
-    surf[KEY_PRESS_SURFACE_DEFAULT] = load_surface("images/press.bmp",BMP_FILE);
-    if(!surf[KEY_PRESS_SURFACE_DEFAULT]){
+    surf[Key_Press_Surface_Default] = load_surface("images/press.bmp",Bmp_File);
+    if(!surf[Key_Press_Surface_Default])
+    {
         success = false;
         std::cerr << "Failed to load default image!\n";
     }
-    surf[KEY_PRESS_SURFACE_UP] = load_surface("images/up.bmp",BMP_FILE);
-    if(!surf[KEY_PRESS_SURFACE_UP]){
+    surf[Key_Press_Surface_Up] = load_surface("images/up.bmp",Bmp_File);
+    if(!surf[Key_Press_Surface_Up])
+    {
         success = false;
         std::cerr << "Failed to load up image!\n";
     }
-    surf[KEY_PRESS_SURFACE_DOWN] = load_surface("images/down.bmp",BMP_FILE);
-    if(!surf[KEY_PRESS_SURFACE_DOWN]){
+    surf[Key_Press_Surface_Down] = load_surface("images/down.bmp",Bmp_File);
+    if(!surf[Key_Press_Surface_Down])
+    {
         success = false;
         std::cerr << "Failed to load down image!\n";
     }
-    surf[KEY_PRESS_SURFACE_LEFT] = load_surface("images/left.bmp",BMP_FILE);
-    if(!surf[KEY_PRESS_SURFACE_LEFT]){
+    surf[Key_Press_Surface_Left] = load_surface("images/left.bmp",Bmp_File);
+    if(!surf[Key_Press_Surface_Left])
+    {
         success = false;
         std::cerr << "Failed to load left image!\n";
     }
 
-    surf[KEY_PRESS_SURFACE_RIGHT] = load_surface("images/right.bmp",BMP_FILE);
-    if(!surf[KEY_PRESS_SURFACE_RIGHT]){
+    surf[Key_Press_Surface_Right] = load_surface("images/right.bmp",Bmp_File);
+    if(!surf[Key_Press_Surface_Right])
+    {
         success = false;
         std::cerr << "Failed to load right image!\n";
     }
     return success;
 }
 
-inline void load_sprite_sheet(std::vector<SDL_Rect>& r,int framewidth,int frameheight,int imagewidth,int imageheight){
-    for(int i = 0,x = 0, y = 0; y < imageheight; x+=framewidth,i++){
+inline void load_sprite_sheet(std::vector<SDL_Rect>& r,int framewidth,int frameheight,int imagewidth,int imageheight)
+{
+    for(int i = 0,x = 0, y = 0; y < imageheight; x+=framewidth,i++)
+    {
         r.push_back(SDL_Rect{x,y,framewidth,frameheight});
-        if(x+framewidth>=imagewidth){
+        if(x+framewidth>=imagewidth)
+        {
             x = -framewidth;
             y+=frameheight;
         }
     }
 }
 
-inline void close(SDL_Window *&win,SDL_Surface *&surf){
+inline void close(SDL_Window *&win,SDL_Surface *&surf)
+{
     SDL_FreeSurface(surf);
     surf = nullptr;
     SDL_DestroyWindow(win);
@@ -217,7 +267,8 @@ inline void close(SDL_Window *&win,SDL_Surface *&surf){
     SDL_Quit();
 }
 
-inline void close(SDL_Window *&win, SDL_Renderer *&rend){
+inline void close(SDL_Window *&win, SDL_Renderer *&rend)
+{
     SDL_DestroyRenderer(rend);
     SDL_DestroyWindow(win);
     win = nullptr;
@@ -226,7 +277,8 @@ inline void close(SDL_Window *&win, SDL_Renderer *&rend){
     SDL_Quit();
 }
 
-inline void close(SDL_Window *&window, SDL_Renderer *&renderer,TTF_Font *&font){
+inline void close(SDL_Window *&window, SDL_Renderer *&renderer,TTF_Font *&font)
+{
     TTF_CloseFont(font);
     font = nullptr;
     SDL_DestroyRenderer(renderer);
@@ -239,7 +291,8 @@ inline void close(SDL_Window *&window, SDL_Renderer *&renderer,TTF_Font *&font){
     SDL_Quit();
 }
 
-inline void close(SDL_Window *&win,SDL_Texture *&text,SDL_Renderer *&rend){
+inline void close(SDL_Window *&win,SDL_Texture *&text,SDL_Renderer *&rend)
+{
     SDL_DestroyTexture(text);
     text = nullptr;
     SDL_DestroyRenderer(rend);

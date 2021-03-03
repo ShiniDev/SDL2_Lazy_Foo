@@ -6,15 +6,17 @@
 #include <SDL2/SDL.h>
 #include <vector>
 
-enum ButtonSpriteEvents{
-    BUTTON_SPRITE_MOUSE_OUT,
-    BUTTON_SPRITE_MOUSE_OVER_MOTION,
-    BUTTON_SPRITE_MOUSE_DOWN,
-    BUTTON_SPRITE_MOUSE_UP,
-    BUTTON_SPRITE_MOUSE_TOTAL
+enum ButtonSpriteEvents
+{
+    Button_Sprite_Mouse_Out,
+    Button_Sprite_Mouse_Over_Motion,
+    Button_Sprite_Mouse_Down,
+    Button_Sprite_Mouse_Up,
+    Button_Sprite_Mouse_Total
 };
 
-class LButton{
+class LButton
+{
     public:
         //Initializes internal variables
         LButton(LTexture&,std::vector<SDL_Rect>&);

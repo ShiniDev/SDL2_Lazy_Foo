@@ -2,7 +2,8 @@
 #define LTEXTURE_HPP
 #include "../MySdlFunctions.hpp"
 
-class LTexture{
+class LTexture
+{
     public:
         //Initializes class variables
         LTexture();
