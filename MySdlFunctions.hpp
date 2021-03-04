@@ -43,7 +43,7 @@ inline bool init(SDL_Window*&,SDL_Surface*&,int,int,const std::string&);
 //Initializes SDL Window and Renderer
 inline bool init(SDL_Window*&,SDL_Renderer*&,int,int,const std::string&);
 
-inline bool init_with_joystick(SDL_Window*& win,SDL_Renderer*& render,SDL_Joystick*& joystick,int screenWidth,int screenHeight,const std::string& title);
+inline bool init_with_joystick(SDL_Window*& win,SDL_Renderer*& render,SDL_Joystick*& joystick,SDL_Haptic*& haptic,int screenWidth,int screenHeight,const std::string& title);
 
 //Attaches the imagefile from filepath to the SDL Surface argument
 inline bool load_media(SDL_Surface*&,const std::string&,ImageType);
@@ -192,9 +192,9 @@ inline bool init(SDL_Window *&win,SDL_Renderer *&rend,int SCREEN_WIDTH,int SCREE
     return true;
 }
 
-inline bool init_with_joystick(SDL_Window*& win,SDL_Renderer*& render,SDL_Joystick*& joystick,int screenWidth,int screenHeight,const std::string& title)
+inline bool init_with_joystick(SDL_Window*& win,SDL_Renderer*& render,SDL_Joystick*& joystick,SDL_Haptic*& haptic,int screenWidth,int screenHeight,const std::string& title)
 {
-    if(SDL_Init(SDL_INIT_VIDEO | SDL_INIT_JOYSTICK)<0)
+    if(SDL_Init(SDL_INIT_VIDEO | SDL_INIT_JOYSTICK | SDL_INIT_HAPTIC)<0)
     {
         std::cerr << "SDL could not be initialized! SDL Error: " << SDL_GetError() << '\n';
         return false;
@@ -227,7 +227,7 @@ inline bool init_with_joystick(SDL_Window*& win,SDL_Renderer*& render,SDL_Joysti
     {
         std::cerr << "Warning: Linear texture filtering not enabled!\n";
     }
-    if(SDL_NumJoysticks()<0)
+    if(SDL_NumJoysticks()<=0)
     {
         std::cerr << "Warning: No joysticks connected!\n";
     }
@@ -235,6 +235,15 @@ inline bool init_with_joystick(SDL_Window*& win,SDL_Renderer*& render,SDL_Joysti
     if(!joystick)
     {
         std::cerr << "Warning: Unable to open game controller! SDL Error: " << SDL_GetError() << '\n';
+    }
+    haptic = SDL_HapticOpenFromJoystick(joystick);
+    if(!haptic)
+    {
+        std::cerr << "Warning: Controller does not support haptics! SDL Error: " << SDL_GetError() << '\n';
+    }
+    if(SDL_HapticRumbleInit(haptic)<0)
+    {
+        std::cerr << "Warning: Unable to initialize rumble! SDL Error: " << SDL_GetError() << '\n';
     }
     return true;
 

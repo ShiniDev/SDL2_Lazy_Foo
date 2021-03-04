@@ -14,8 +14,9 @@ int main(int argc,char* args[])
     SDL_Window* window = nullptr;
     SDL_Renderer* renderer = nullptr;
     SDL_Joystick* joystick = nullptr;
+    SDL_Haptic* haptic = nullptr;
     LTexture arrowTexture;
-    if(!init_with_joystick(window,renderer,joystick,SCREEN_WIDTH,SCREEN_HEIGHT,"Gamepads and Joysticks"))
+    if(!init_with_joystick(window,renderer,joystick,haptic,SCREEN_WIDTH,SCREEN_HEIGHT,"Gamepads and Joysticks"))
     {
         std::cerr << "SDL failed to initialize!\n";
     }
