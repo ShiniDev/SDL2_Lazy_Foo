@@ -43,6 +43,8 @@ inline bool init(SDL_Window*&,SDL_Surface*&,int,int,const std::string&);
 //Initializes SDL Window and Renderer
 inline bool init(SDL_Window*&,SDL_Renderer*&,int,int,const std::string&);
 
+inline bool init_with_joystick(SDL_Window*& win,SDL_Renderer*& render,SDL_Joystick*& joystick,int screenWidth,int screenHeight,const std::string& title);
+
 //Attaches the imagefile from filepath to the SDL Surface argument
 inline bool load_media(SDL_Surface*&,const std::string&,ImageType);
 
@@ -188,6 +190,54 @@ inline bool init(SDL_Window *&win,SDL_Renderer *&rend,int SCREEN_WIDTH,int SCREE
         return false;
     }
     return true;
+}
+
+inline bool init_with_joystick(SDL_Window*& win,SDL_Renderer*& render,SDL_Joystick*& joystick,int screenWidth,int screenHeight,const std::string& title)
+{
+    if(SDL_Init(SDL_INIT_VIDEO | SDL_INIT_JOYSTICK)<0)
+    {
+        std::cerr << "SDL could not be initialized! SDL Error: " << SDL_GetError() << '\n';
+        return false;
+    }
+    win = SDL_CreateWindow(title.c_str(),SDL_WINDOWPOS_UNDEFINED,SDL_WINDOWPOS_UNDEFINED,screenWidth,screenHeight,SDL_WINDOW_SHOWN);
+    if(!win)
+    {
+        std::cerr << "Window could not be created! SDL Error: " << SDL_GetError() << '\n';
+        return false;
+    }
+    render = SDL_CreateRenderer(win,-1,SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+    if(!render)
+    {
+        std::cerr << "Rendered could not be created! SDL Error: " << SDL_GetError() << '\n';
+        return false;
+    }
+    SDL_SetRenderDrawColor(render,0xFf,0xFF,0xFF,0xFF);
+    int img_flags = IMG_INIT_PNG;
+    if(!(IMG_Init(img_flags) & img_flags))
+    {
+        std::cerr << "PNG SDL Image could not be initialize! SDL Error: " << SDL_GetError() << '\n';
+        return false;
+    }
+    if(TTF_Init() == -1)
+    {
+        std::cerr << "SDL TTF could not be initialize! SDL_ttf Error: " << TTF_GetError() << '\n';
+        return false;
+    }
+    if(!SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY,"1"))
+    {
+        std::cerr << "Warning: Linear texture filtering not enabled!\n";
+    }
+    if(SDL_NumJoysticks()<0)
+    {
+        std::cerr << "Warning: No joysticks connected!\n";
+    }
+    joystick = SDL_JoystickOpen(0);
+    if(!joystick)
+    {
+        std::cerr << "Warning: Unable to open game controller! SDL Error: " << SDL_GetError() << '\n';
+    }
+    return true;
+
 }
 
 inline bool load_media(SDL_Surface *&surf,const std::string& filepath,ImageType t)
