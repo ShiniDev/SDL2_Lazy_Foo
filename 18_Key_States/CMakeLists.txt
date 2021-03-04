@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(MouseEvents)
+project(KeyStates)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -ggdb -std=c++14")
 INCLUDE(FindPkgConfig)
 PKG_SEARCH_MODULE(SDL2 REQUIRED sdl2)
