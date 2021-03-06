@@ -14,7 +14,7 @@ int main(int argc, char* args[]){
     if(!init(win,screen_surface,SCREEN_WIDTH,SCREEN_HEIGHT,"Event Driven")){
         std::cerr << "Failed to initialize!\n";
     }else{
-        if(!load_media(image_surface,"ubuntu-icon-2.bmp",ImageType::BMP_FILE)){
+        if(!load_media(image_surface,"ubuntu-icon-2.bmp",ImageType::Bmp_File)){
             std::cerr << "Failed to load image!\n";
         }else{
             while(running){

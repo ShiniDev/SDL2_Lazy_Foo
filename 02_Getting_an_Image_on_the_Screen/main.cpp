@@ -12,7 +12,7 @@ int main(int argc, char* argv[]){
     if(!init(win,screen_surface,SCREEN_WIDTH,SCREEN_HEIGHT,"Image on Screen")){
         std::cerr << "Failed to Initialize!\n";
     }else{
-        if(!load_media(shini_surface,"shinidev.bmp",ImageType::BMP_FILE)){
+        if(!load_media(shini_surface,"shinidev.bmp",ImageType::Bmp_File)){
             std::cerr << "Failed to load media!\n";
         }else{
             SDL_BlitSurface(shini_surface,nullptr,screen_surface,nullptr);
