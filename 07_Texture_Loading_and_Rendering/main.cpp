@@ -10,7 +10,7 @@ int main(int argc,char* args[]){
     if(!init(win,rend,SCREEN_WIDTH,SCREEN_HEIGHT,"Texture Loading and Rendering")){
         std::cerr << "Failed to initialize!\n";
     }else{
-        text = load_texture(rend,"5.jpg",ImageType::OTHER_IMG_FILE);
+        text = load_texture(rend,"5.jpg",ImageType::Other_Img_File);
         if(!text){
             std::cerr << "Failed to load texture!\n";
         }else{

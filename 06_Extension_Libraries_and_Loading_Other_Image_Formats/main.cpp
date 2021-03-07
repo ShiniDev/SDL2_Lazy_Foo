@@ -10,7 +10,7 @@ int main(int argc, char* args[]){
     if(!init(win,win_surface,SCREEN_WIDTH,SCREEN_HEIGHT,"Extension Libraries and Loading Other Image Formats")){
         std::cerr << "SDL could not be initialized! SDL Error: " << SDL_GetError() << '\n';
     }else{
-        img_surface = optimize_load_surface(win_surface,"1.jpg",ImageType::OTHER_IMG_FILE);
+        img_surface = optimize_load_surface(win_surface,"1.jpg",ImageType::Other_Img_File);
         if(!img_surface){
             std::cerr << "Image could not be loaded! SDL Error: " << SDL_GetError() << '\n';
         }else{

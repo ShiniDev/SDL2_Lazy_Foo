@@ -12,7 +12,7 @@ int main(int argc,char* args[]){
     if(!init(win,screen_surface,SCREEN_WIDTH,SCREEN_HEIGHT,"Surface Loading and Soft Stretching")){
         std::cerr << "SDL failed to initialize!\n";
     }else{
-        image_surface = optimize_load_surface(screen_surface,"stretch.bmp",ImageType::BMP_FILE);
+        image_surface = optimize_load_surface(screen_surface,"stretch.bmp",ImageType::Bmp_File);
         if(!image_surface){
             std::cerr << "Image failed to load!\n";
         }else {

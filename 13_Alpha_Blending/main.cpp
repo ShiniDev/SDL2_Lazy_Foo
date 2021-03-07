@@ -32,7 +32,7 @@ int main(int argc,char* args[]){
                                 }else{
                                     alpha+=32;
                                 }
-                            }else if(e.key.keysym.sym==SDLK_q){
+                            }else if(e.key.keysym.sym==SDLK_s){
                                 if(alpha-32<0){
                                     alpha = 0;
                                 }else{

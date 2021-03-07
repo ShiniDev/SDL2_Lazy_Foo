@@ -10,7 +10,7 @@ int main(int argc,char* args[]){
     if(!init(win,rend,SCREEN_WIDTH,SCREEN_HEIGHT,"The Viewport")){
         std::cerr << "Failed to initialize SDL!\n";
     }else{
-        img = load_texture(rend,"pixeltv.png",ImageType::OTHER_IMG_FILE);
+        img = load_texture(rend,"pixeltv.png",ImageType::Other_Img_File);
         if(!img){
             std::cerr << "Failed to load image!\n";
         }else{
