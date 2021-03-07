@@ -1,12 +1,13 @@
 #ifndef MYSDLFUNCTIONS_HPP
 #define MYSDLFUNCTIONS_HPP
 
-#include <iostream>
-#include <vector>
-#include <string>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
+#include <SDL2/SDL_mixer.h>
+#include <iostream>
+#include <vector>
+#include <string>
 
 //To be used in storing surface or texture that are changeable through the following keys
 enum KeyPressSurfaces
@@ -160,7 +161,7 @@ inline bool init(SDL_Window *&win,SDL_Surface *&surf,int SCREEN_WIDTH,int SCREEN
 
 inline bool init(SDL_Window *&win,SDL_Renderer *&rend,int SCREEN_WIDTH,int SCREEN_HEIGHT,const std::string& WIN_NAME)
 {
-    if(SDL_Init(SDL_INIT_VIDEO)<0)
+    if(SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO)<0)
     {
         std::cerr << "SDL could not be initialized! SDL Error: " << SDL_GetError() << '\n';
         return false;
@@ -187,6 +188,11 @@ inline bool init(SDL_Window *&win,SDL_Renderer *&rend,int SCREEN_WIDTH,int SCREE
     if(TTF_Init() == -1)
     {
         std::cerr << "SDL TTF could not be initialize! SDL_ttf Error: " << TTF_GetError() << '\n';
+        return false;
+    }
+    if(Mix_OpenAudio(44100,MIX_DEFAULT_FORMAT,2,2048)<0)
+    {
+        std::cerr << "SDL_Mixer could not be initialize! SDL_mixer Error: " << Mix_GetError() << '\n';
         return false;
     }
     return true;
