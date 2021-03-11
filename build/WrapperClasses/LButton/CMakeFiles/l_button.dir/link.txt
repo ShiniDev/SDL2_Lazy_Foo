@@ -1,0 +1,2 @@
+/bin/ar qc libl_button.a CMakeFiles/l_button.dir/LButton.cpp.o
+/bin/ranlib libl_button.a

@@ -1,0 +1,1 @@
+/bin/clang++-11  -Wall -ggdb -O3 -std=c++11 -g CMakeFiles/Texture_Loading.dir/main.cpp.o -o Texture_Loading  -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer 

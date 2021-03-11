@@ -1,0 +1,1 @@
+/bin/clang++-11  -Wall -ggdb -O3 -std=c++11 -g CMakeFiles/Alpha_Blending.dir/main.cpp.o -o Alpha_Blending  ../../WrapperClasses/LTexture/libl_texture.a -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer 

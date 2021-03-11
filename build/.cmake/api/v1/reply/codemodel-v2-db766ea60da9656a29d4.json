@@ -1,0 +1,695 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						4,
+						7
+					],
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"projectIndex" : 0,
+					"source" : "."
+				},
+				{
+					"build" : "libs",
+					"childIndexes" : 
+					[
+						2,
+						3
+					],
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "libs"
+				},
+				{
+					"build" : "libs/sdl2",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "libs/sdl2"
+				},
+				{
+					"build" : "libs/Utilities",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "libs/Utilities"
+				},
+				{
+					"build" : "WrapperClasses",
+					"childIndexes" : 
+					[
+						5,
+						6
+					],
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "WrapperClasses"
+				},
+				{
+					"build" : "WrapperClasses/LTexture",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 4,
+					"projectIndex" : 0,
+					"source" : "WrapperClasses/LTexture",
+					"targetIndexes" : 
+					[
+						23
+					]
+				},
+				{
+					"build" : "WrapperClasses/LButton",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 4,
+					"projectIndex" : 0,
+					"source" : "WrapperClasses/LButton",
+					"targetIndexes" : 
+					[
+						22
+					]
+				},
+				{
+					"build" : "tutorials",
+					"childIndexes" : 
+					[
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18,
+						19,
+						20,
+						21,
+						22,
+						23,
+						24,
+						25,
+						26,
+						27,
+						28,
+						29
+					],
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "tutorials"
+				},
+				{
+					"build" : "tutorials/01_Hello_SDL",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 7,
+					"projectIndex" : 0,
+					"source" : "tutorials/01_Hello_SDL",
+					"targetIndexes" : 
+					[
+						10
+					]
+				},
+				{
+					"build" : "tutorials/02_Getting_an_Image_on_the_Screen",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 7,
+					"projectIndex" : 0,
+					"source" : "tutorials/02_Getting_an_Image_on_the_Screen",
+					"targetIndexes" : 
+					[
+						9
+					]
+				},
+				{
+					"build" : "tutorials/03_Event_Driven_Programming",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 7,
+					"projectIndex" : 0,
+					"source" : "tutorials/03_Event_Driven_Programming",
+					"targetIndexes" : 
+					[
+						5
+					]
+				},
+				{
+					"build" : "tutorials/04_Key_Presses",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 7,
+					"projectIndex" : 0,
+					"source" : "tutorials/04_Key_Presses",
+					"targetIndexes" : 
+					[
+						11
+					]
+				},
+				{
+					"build" : "tutorials/05_Optimized_Surface_Loading_and_Soft_Stretching",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 7,
+					"projectIndex" : 0,
+					"source" : "tutorials/05_Optimized_Surface_Loading_and_Soft_Stretching",
+					"targetIndexes" : 
+					[
+						15
+					]
+				},
+				{
+					"build" : "tutorials/06_Extension_Libraries_and_Loading_Other_Image_Formats",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 7,
+					"projectIndex" : 0,
+					"source" : "tutorials/06_Extension_Libraries_and_Loading_Other_Image_Formats",
+					"targetIndexes" : 
+					[
+						13
+					]
+				},
+				{
+					"build" : "tutorials/07_Texture_Loading_and_Rendering",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 7,
+					"projectIndex" : 0,
+					"source" : "tutorials/07_Texture_Loading_and_Rendering",
+					"targetIndexes" : 
+					[
+						18
+					]
+				},
+				{
+					"build" : "tutorials/08_Geometry_Rendering",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 7,
+					"projectIndex" : 0,
+					"source" : "tutorials/08_Geometry_Rendering",
+					"targetIndexes" : 
+					[
+						8
+					]
+				},
+				{
+					"build" : "tutorials/09_The_Viewport",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 7,
+					"projectIndex" : 0,
+					"source" : "tutorials/09_The_Viewport",
+					"targetIndexes" : 
+					[
+						19
+					]
+				},
+				{
+					"build" : "tutorials/10_Color_Keying",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 7,
+					"projectIndex" : 0,
+					"source" : "tutorials/10_Color_Keying",
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"build" : "tutorials/11_Clip_Rendering_and_Sprite_Sheets",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 7,
+					"projectIndex" : 0,
+					"source" : "tutorials/11_Clip_Rendering_and_Sprite_Sheets",
+					"targetIndexes" : 
+					[
+						2
+					]
+				},
+				{
+					"build" : "tutorials/12_Color_Modulation",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 7,
+					"projectIndex" : 0,
+					"source" : "tutorials/12_Color_Modulation",
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"build" : "tutorials/13_Alpha_Blending",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 7,
+					"projectIndex" : 0,
+					"source" : "tutorials/13_Alpha_Blending",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"build" : "tutorials/14_Animated_Sprites_and_Vsync",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 7,
+					"projectIndex" : 0,
+					"source" : "tutorials/14_Animated_Sprites_and_Vsync",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"build" : "tutorials/15_Rotation_and_Flipping",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 7,
+					"projectIndex" : 0,
+					"source" : "tutorials/15_Rotation_and_Flipping",
+					"targetIndexes" : 
+					[
+						16
+					]
+				},
+				{
+					"build" : "tutorials/16_True_Type_Fonts",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 7,
+					"projectIndex" : 0,
+					"source" : "tutorials/16_True_Type_Fonts",
+					"targetIndexes" : 
+					[
+						21
+					]
+				},
+				{
+					"build" : "tutorials/17_Mouse_Events",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 7,
+					"projectIndex" : 0,
+					"source" : "tutorials/17_Mouse_Events",
+					"targetIndexes" : 
+					[
+						14
+					]
+				},
+				{
+					"build" : "tutorials/18_Key_States",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 7,
+					"projectIndex" : 0,
+					"source" : "tutorials/18_Key_States",
+					"targetIndexes" : 
+					[
+						12
+					]
+				},
+				{
+					"build" : "tutorials/19_Gamepads_and_Joysticks",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 7,
+					"projectIndex" : 0,
+					"source" : "tutorials/19_Gamepads_and_Joysticks",
+					"targetIndexes" : 
+					[
+						7
+					]
+				},
+				{
+					"build" : "tutorials/20_Force_Feedback",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 7,
+					"projectIndex" : 0,
+					"source" : "tutorials/20_Force_Feedback",
+					"targetIndexes" : 
+					[
+						6
+					]
+				},
+				{
+					"build" : "tutorials/21_Sound_Effects_and_Music",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 7,
+					"projectIndex" : 0,
+					"source" : "tutorials/21_Sound_Effects_and_Music",
+					"targetIndexes" : 
+					[
+						17
+					]
+				},
+				{
+					"build" : "tutorials/22_Timing",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 7,
+					"projectIndex" : 0,
+					"source" : "tutorials/22_Timing",
+					"targetIndexes" : 
+					[
+						20
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18,
+						19,
+						20,
+						21,
+						22,
+						23,
+						24,
+						25,
+						26,
+						27,
+						28,
+						29
+					],
+					"name" : "LazyFooSDLTutorials",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18,
+						19,
+						20,
+						21,
+						22,
+						23
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 20,
+					"id" : "Alpha_Blending::@02b6c474802c69a152e4",
+					"jsonFile" : "target-Alpha_Blending-Debug-0f2c98f66208c5832651.json",
+					"name" : "Alpha_Blending",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 21,
+					"id" : "Animated_Sprites::@2daf42bda7fdf1d24f4c",
+					"jsonFile" : "target-Animated_Sprites-Debug-2a31fe65b963ef93f6be.json",
+					"name" : "Animated_Sprites",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 18,
+					"id" : "Clip_Render_Sprite_Sheets::@a47eeb90137441ddddaf",
+					"jsonFile" : "target-Clip_Render_Sprite_Sheets-Debug-051f4a4a3f5b7c059f02.json",
+					"name" : "Clip_Render_Sprite_Sheets",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 17,
+					"id" : "Color_Keying::@bdcbe45b35d4ab45b3b2",
+					"jsonFile" : "target-Color_Keying-Debug-57a51dc1ab3db1387f6e.json",
+					"name" : "Color_Keying",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 19,
+					"id" : "Color_Modulation::@1f46aae4d3801e5a2444",
+					"jsonFile" : "target-Color_Modulation-Debug-86bbbbb11e132351d466.json",
+					"name" : "Color_Modulation",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 10,
+					"id" : "Event_Driven::@4a03e9626a66569aa358",
+					"jsonFile" : "target-Event_Driven-Debug-dfc0edf903ef806aab87.json",
+					"name" : "Event_Driven",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 27,
+					"id" : "Force_Feedback::@d55e4e337d8caa4e8524",
+					"jsonFile" : "target-Force_Feedback-Debug-f57ee945fc42b71a72c9.json",
+					"name" : "Force_Feedback",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 26,
+					"id" : "Gamepads_Joysticks::@100039b9e1b555edc03f",
+					"jsonFile" : "target-Gamepads_Joysticks-Debug-1597108383213e26fc8b.json",
+					"name" : "Gamepads_Joysticks",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 15,
+					"id" : "Geometry_Rendering::@5a0a56e0c06efc29862f",
+					"jsonFile" : "target-Geometry_Rendering-Debug-7c4faa6b146e490792a0.json",
+					"name" : "Geometry_Rendering",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 9,
+					"id" : "Getting_Image::@8276eda0588d998d8a1f",
+					"jsonFile" : "target-Getting_Image-Debug-8b9a5fbbda7961e38628.json",
+					"name" : "Getting_Image",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 8,
+					"id" : "Hello_Sdl::@cd668b8cbdc9c7e6c5db",
+					"jsonFile" : "target-Hello_Sdl-Debug-c428a8815f32fde1869d.json",
+					"name" : "Hello_Sdl",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 11,
+					"id" : "Key_Presses::@4bf13340560aff35f481",
+					"jsonFile" : "target-Key_Presses-Debug-c433fc511da75e289833.json",
+					"name" : "Key_Presses",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 25,
+					"id" : "Key_States::@4e1579edac4f082f9197",
+					"jsonFile" : "target-Key_States-Debug-aef8ee1b2dc5c8e5f094.json",
+					"name" : "Key_States",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 13,
+					"id" : "Loading_Formats::@02f042f87443ac9a7fd3",
+					"jsonFile" : "target-Loading_Formats-Debug-b1150bfd34c8cbde536f.json",
+					"name" : "Loading_Formats",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 24,
+					"id" : "Mouse_Events::@bd0d4f40cbff43b0d553",
+					"jsonFile" : "target-Mouse_Events-Debug-3dc1e1d0158bccc2a3f4.json",
+					"name" : "Mouse_Events",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 12,
+					"id" : "Optimized_Loading::@0f2eaefb4fbfc2a69846",
+					"jsonFile" : "target-Optimized_Loading-Debug-632b9f84ec304adf02b3.json",
+					"name" : "Optimized_Loading",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 22,
+					"id" : "Rotation_Flipping::@3d2119bfcbac78e3799c",
+					"jsonFile" : "target-Rotation_Flipping-Debug-b2862e08cae705e6a6ea.json",
+					"name" : "Rotation_Flipping",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 28,
+					"id" : "SFX_Music::@55ec85296cac3d08c54c",
+					"jsonFile" : "target-SFX_Music-Debug-a64217a98fae6b0dc875.json",
+					"name" : "SFX_Music",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 14,
+					"id" : "Texture_Loading::@4420becf39754432c046",
+					"jsonFile" : "target-Texture_Loading-Debug-19834d0b3af9bc8d5722.json",
+					"name" : "Texture_Loading",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 16,
+					"id" : "The_Viewport::@2d52db09a5d6c8799014",
+					"jsonFile" : "target-The_Viewport-Debug-2e0ab9368e16bbd18e91.json",
+					"name" : "The_Viewport",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 29,
+					"id" : "Timing::@0684de097cc5708b48d1",
+					"jsonFile" : "target-Timing-Debug-a30e139bdb60b70a8431.json",
+					"name" : "Timing",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 23,
+					"id" : "True_Type_Fonts::@52a6d4cbd4da9cbd7bdc",
+					"jsonFile" : "target-True_Type_Fonts-Debug-dda806e6accad0ff74a6.json",
+					"name" : "True_Type_Fonts",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 6,
+					"id" : "l_button::@52e676f597d2bbd45306",
+					"jsonFile" : "target-l_button-Debug-11ae6b6cb45b81d60a22.json",
+					"name" : "l_button",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "l_texture::@ec5c4e43c2b286ff2df3",
+					"jsonFile" : "target-l_texture-Debug-e781f37560f275b7d275.json",
+					"name" : "l_texture",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/marklaurente/Documents/Programming/C++/GitHubRepositories/SDL2_Lazy_Foo/build",
+		"source" : "/home/marklaurente/Documents/Programming/C++/GitHubRepositories/SDL2_Lazy_Foo"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 2
+	}
+}
