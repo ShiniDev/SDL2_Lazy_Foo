@@ -1,1 +1,0 @@
-/bin/clang++-11  -Wall -ggdb -O3 -std=c++11 -g CMakeFiles/Geometry_Rendering.dir/main.cpp.o -o Geometry_Rendering  -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer 

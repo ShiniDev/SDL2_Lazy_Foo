@@ -1,1 +1,0 @@
-/bin/clang++-11  -Wall -ggdb -O3 -std=c++11 -g CMakeFiles/Hello_Sdl.dir/main.cpp.o -o Hello_Sdl  -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer 

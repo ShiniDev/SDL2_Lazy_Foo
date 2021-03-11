@@ -1,2 +1,0 @@
-/bin/ar qc libl_texture.a CMakeFiles/l_texture.dir/LTexture.cpp.o
-/bin/ranlib libl_texture.a
