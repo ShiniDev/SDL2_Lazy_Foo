@@ -1,4 +1,4 @@
-#include "../MySdlFunctions.hpp"
+#include <MySdlFunctions.hpp>
 #include <LTexture.hpp>
 #include <LButton.hpp>
 #include <iostream>
