@@ -9,6 +9,7 @@
 
 int main(int argc,char* argv[])
 {
+    std::string s = SDL_GetBasePath();
     constexpr int SCREEN_WIDTH = 640;
     constexpr int SCREEN_HEIGHT = 480;
     SDL_Window* window = nullptr; 
@@ -21,7 +22,7 @@ int main(int argc,char* argv[])
     }
     else 
     {
-        font = TTF_OpenFont(appendBasePath("lazy.ttf").c_str(),32);
+        font = TTF_OpenFont(appendString(s,"lazy.ttf").c_str(),32);
         if(!font)
         {
             std::cerr << "Failed to initialize lazy.ttf!\n";

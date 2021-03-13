@@ -380,4 +380,9 @@ inline std::string appendBasePath(std::string filePath)
     return appendedFilePath;
 }
 
+inline std::string appendString(const std::string& s1,const std::string& s2)
+{
+    return s1+s2;
+}
+
 #endif
